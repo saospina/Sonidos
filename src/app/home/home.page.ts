@@ -16,8 +16,12 @@ export class HomePage {
   }
   reproducir(animal: Animal) {
     console.log(animal);
-    
-
-  }
+    let audio = new Audio();
+    audio.src = animal.audio;
+    animal.reproduciendo = true;
+    audio.load();
+    audio.play();
+    setTimeout(()=> animal.reproduciendo = false, animal.duracion * 1000);
+   }
 
 }
